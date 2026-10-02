@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A Little Something ❤️</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Arial, sans-serif;
+        color: white;
+        background: radial-gradient(
+          circle at top,
+          #4b1838,
+          #190b18 60%,
+          #080508
+        );
+        overflow: hidden;
+      }
+
+      /* =========================
+       CARD
+    ========================= */
+
+      .card {
+        width: min(90%, 520px);
+        padding: 45px 30px;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 28px;
+        backdrop-filter: blur(15px);
+        box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+        position: relative;
+        z-index: 2;
+      }
+
+      /* =========================
+       MAIN HEART
+    ========================= */
+
+      .main-heart {
+        font-size: 65px;
+        animation: heartbeat 1.2s infinite;
+      }
+
+      /* =========================
+       TEXT
+    ========================= */
+
+      h1 {
+        font-size: 40px;
+        margin: 20px 0 10px;
+      }
+
+      h2 {
+        font-size: 34px;
+      }
+
+      p {
+        color: #eadce7;
+        line-height: 1.7;
+        font-size: 17px;
+      }
+
+      /* =========================
+       BUTTONS
+    ========================= */
+
+      button {
+        border: none;
+        border-radius: 50px;
+        padding: 14px 25px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.25s ease;
+      }
+
+      button:hover {
+        transform: scale(1.06);
+      }
+
+      .main-btn {
+        margin-top: 20px;
+        background: white;
+        color: #741f52;
+      }
+
+      .yes-btn {
+        background: #ff4f91;
+        color: white;
+        margin: 10px;
+      }
+
+      .no-btn {
+        background: #555;
+        color: white;
+        margin: 10px;
+      }
+
+      .whatsapp-btn {
+        background: #25d366;
+        color: white;
+        margin-top: 15px;
+      }
+
+      /* =========================
+       SCREENS
+    ========================= */
+
+      .screen {
+        display: none;
+      }
+
+      .screen.active {
+        display: block;
+        animation: screenIn 0.7s ease;
+      }
+
+      /* =========================
+       SIGNATURE
+    ========================= */
+
+      .signature {
+        margin-top: 20px;
+        color: #d9b7ce;
+        font-style: italic;
+      }
+
+      /* =========================
+       CONFUSION TEXT
+    ========================= */
+
+      .confused {
+        margin-top: 15px;
+        color: #dcb8d1;
+        font-size: 14px;
+      }
+
+      /* =========================
+       FLOATING HEARTS
+    ========================= */
+
+      .floating-heart {
+        position: fixed;
+        bottom: -50px;
+        pointer-events: none;
+        z-index: 1;
+        animation: floatUp linear forwards;
+      }
+
+      /* =========================
+       ANIMATIONS
+    ========================= */
+
+      @keyframes heartbeat {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+
+        50% {
+          transform: scale(1.18);
+        }
+      }
+
+      @keyframes screenIn {
+        from {
+          opacity: 0;
+          transform: translateY(25px) scale(0.97);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      @keyframes floatUp {
+        0% {
+          transform: translateY(0) rotate(0deg);
+          opacity: 0;
+        }
+
+        15% {
+          opacity: 1;
+        }
+
+        100% {
+          transform: translateY(-110vh) rotate(35deg);
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- =========================
+       MUSIC
+  ========================= -->
+
+    <audio id="music" autoplay loop>
+      <source src="music.mp3" type="audio/mpeg" />
+    </audio>
+
+    <!-- =========================
+       CARD
+  ========================= -->
+
+    <div class="card">
+      <!-- =====================
+         SCREEN 1
+    ====================== -->
+
+      <div id="screen1" class="screen active">
+        <div class="main-heart">❤️</div>
+
+        <h1>Hey, you... 👀</h1>
+
+        <p>
+          I could've just sent you a text like a normal person... But where's
+          the fun in that? 😂 So I came up with something a little different for
+          you. ❤️
+        </p>
+
+        <button class="main-btn" onclick="nextScreen()">
+          I have something to tell you
+        </button>
+      </div>
+
+      <!-- =====================
+         SCREEN 2
+    ====================== -->
+
+      <div id="screen2" class="screen">
+        <div class="main-heart">❤️</div>
+
+        <h2>I love you. ❤️</h2>
+
+        <p>
+          No complicated explanation.<br />
+          No long speech.<br /><br />
+
+          I love you. ❤️ I've been wanting to say this to you. So I'm just going
+          to say it... I love you. 😂❤️
+        </p>
+
+        <!-- <div class="signature">
+        — Someone who definitely spent
+        too much time coding this 😂
+      </div> -->
+
+        <br />
+
+        <p>
+          Okay... one last thing. 👀<br />
+          I need to know something...
+        </p>
+
+        <p>Will you be mine? ❤️</p>
+
+        <button class="yes-btn" onclick="sayYes()">Yes ❤️</button>
+
+        <button class="no-btn" id="noButton" onclick="sayNo()">No 😭</button>
+
+        <div id="confusion" class="confused"></div>
+      </div>
+
+      <!-- =====================
+         SCREEN 3 - YES
+    ====================== -->
+
+      <div id="screen3" class="screen">
+        <div class="main-heart">🥹❤️</div>
+
+        <h2>WAIT... REALLY?!</h2>
+
+        <p>Okay, you've officially made this developer very happy.</p>
+
+        <div style="font-size: 50px">❤️</div>
+
+        <p>I promise all of this was worth it.</p>
+
+        <button class="whatsapp-btn" onclick="sendYes()">
+          Tell me on WhatsApp 💬
+        </button>
+      </div>
+
+      <!-- =====================
+         SCREEN 4 - NO
+    ====================== -->
+
+      <div id="screen4" class="screen">
+        <div class="main-heart">🥲</div>
+
+        <h2>Okay... 😭</h2>
+
+        <p>I respect your decision...</p>
+
+        <p>But now I need an explanation. 😂</p>
+
+        <button class="whatsapp-btn" onclick="sendNo()">
+          Explain yourself 😭
+        </button>
+      </div>
+    </div>
+
+    <script>
+      /* =========================
+       YOUR WHATSAPP NUMBER
+    =========================
+
+       Put your number here.
+
+       Example:
+       23290471725
+
+       Do NOT include:
+       + 
+       spaces
+       brackets
+       dashes
+    */
+
+      const myWhatsAppNumber = "23290471725";
+
+      /* =========================
+       MUSIC
+    ========================= */
+
+      const music = document.getElementById("music");
+
+      /* =========================
+       EVERY CLICK = HEARTS
+    ========================= */
+
+      document.addEventListener("click", function () {
+        createHearts(8);
+
+        /*
+        Browsers often block autoplay
+        until the user interacts with
+        the page.
+      */
+
+        music.play().catch(() => {});
+      });
+
+      /* =========================
+       SCREEN 1 → SCREEN 2
+    ========================= */
+
+      function nextScreen() {
+        document.getElementById("screen1").classList.remove("active");
+
+        document.getElementById("screen2").classList.add("active");
+
+        createHearts(25);
+      }
+
+      /* =========================
+       YES ❤️
+    ========================= */
+
+      function sayYes() {
+        document.getElementById("screen2").classList.remove("active");
+
+        document.getElementById("screen3").classList.add("active");
+
+        createHearts(50);
+      }
+
+      /* =========================
+       NO 😭
+    ========================= */
+
+      let noCount = 0;
+
+      function sayNo() {
+        noCount++;
+
+        const noButton = document.getElementById("noButton");
+
+        const confusion = document.getElementById("confusion");
+
+        if (noCount === 1) {
+          confusion.innerHTML = "Are you sure? 🤨";
+        } else if (noCount === 2) {
+          confusion.innerHTML = "Hmm... I think you pressed the wrong button.";
+
+          noButton.innerHTML = "No... maybe 😭";
+        } else if (noCount === 3) {
+          confusion.innerHTML = "Okay but consider the consequences. 😂";
+
+          noButton.innerHTML = "Definitely No";
+        } else if (noCount === 4) {
+          confusion.innerHTML =
+            "This button is starting to question your decision.";
+
+          noButton.innerHTML = "I insist on No";
+        } else if (noCount === 5) {
+          confusion.innerHTML = "Fine. Last chance. 👀";
+
+          noButton.innerHTML = "Still No";
+
+          noButton.style.transform =
+            "translateX(" + (Math.random() * 150 - 75) + "px";
+        } else {
+          confusion.innerHTML = "Okay okay 😭 You win.";
+
+          noButton.innerHTML = "Okay 😭";
+
+          noButton.style.transform = "none";
+
+          /*
+          After the funny No sequence,
+          give her the option to explain
+          herself on WhatsApp.
+        */
+
+          setTimeout(function () {
+            document.getElementById("screen2").classList.remove("active");
+
+            document.getElementById("screen4").classList.add("active");
+
+            createHearts(15);
+          }, 700);
+        }
+      }
+
+      /* =========================
+       YES → WHATSAPP
+    ========================= */
+
+      function sendYes() {
+        const message = "Okay... I said YES ❤️😂";
+
+        const whatsappURL =
+          "https://wa.me/" +
+          myWhatsAppNumber +
+          "?text=" +
+          encodeURIComponent(message);
+
+        window.open(whatsappURL, "_blank");
+      }
+
+      /* =========================
+       NO → WHATSAPP
+    ========================= */
+
+      function sendNo() {
+        const message =
+          "Okay... I said NO 😭😂 But I think you already knew that.";
+
+        const whatsappURL =
+          "https://wa.me/" +
+          myWhatsAppNumber +
+          "?text=" +
+          encodeURIComponent(message);
+
+        window.open(whatsappURL, "_blank");
+      }
+
+      /* =========================
+       CREATE FLOATING HEARTS
+    ========================= */
+
+      function createHearts(amount) {
+        for (let i = 0; i < amount; i++) {
+          setTimeout(function () {
+            const heart = document.createElement("div");
+
+            heart.className = "floating-heart";
+
+            const hearts = ["❤️", "💗", "💖", "💕", "💓"];
+
+            heart.textContent =
+              hearts[Math.floor(Math.random() * hearts.length)];
+
+            heart.style.left = Math.random() * 100 + "vw";
+
+            heart.style.fontSize = 16 + Math.random() * 28 + "px";
+
+            heart.style.animationDuration = 4 + Math.random() * 4 + "s";
+
+            document.body.appendChild(heart);
+
+            setTimeout(function () {
+              heart.remove();
+            }, 9000);
+          }, i * 60);
+        }
+      }
+    </script>
+  </body>
+</html>
